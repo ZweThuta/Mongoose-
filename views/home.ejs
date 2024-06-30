@@ -26,9 +26,7 @@
             <p class="p-title">
                 <%= post.title %>
             </p>
-            <p class="p-des">
-                <%= post.description%>
-            </p>
+            <p class="p-username">Post by - <%= post.userId.username  %></p>
             <a href="/post/<%=post._id %>" class="see">See More</a>
         </div>
         <% }%>

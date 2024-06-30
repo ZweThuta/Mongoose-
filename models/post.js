@@ -5,15 +5,20 @@ const { Schema, model } = mongoose;
 const postSchema = new Schema({
   title: {
     type: String,
-    require: true,
+    required: true,
   },
   description: {
     type: String,
-    require: true,
+    required: true,
   },
   imgUrl: {
     type: String,
-    require: true,
+    required: true,
   },
+  userId:{
+    type: Schema.Types.ObjectId,
+    ref : "User",
+    required: true,
+  }
 });
 module.exports = model("Post", postSchema);
