@@ -9,6 +9,7 @@ const User = require("./models/user");
 const app = express();
 const userRoutes = require("./routes/user");
 const { adminRoutes } = require("./routes/admin");
+const authRoutes = require("./routes/auth");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -23,9 +24,9 @@ app.use((req, res, next) => {
   });
 });
 
-app.use(userRoutes);
 app.use("/admin", adminRoutes);
-
+app.use(userRoutes);
+app.use(authRoutes);
 
 mongoose
   .connect(process.env.MONGODB_URL)

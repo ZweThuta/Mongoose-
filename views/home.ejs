@@ -11,7 +11,11 @@
 </head>
 <body>
     <h1 class="title">Home page</h1>
-    <a class="newpost-btn" href="/admin/create-post">Add new post</a>
+    <% if(isLogin){  %>
+    <a class="newpost-btn" href="/admin/create-post">Add new post</a> <br>
+    <% } else {%>
+    <a class="newpost-btn" href="/login">Create a new account</a><br>
+    <% } %>
     <hr>
     <h1 class="title">Posts</h1>
     <% if(postsArr.length === 0) { %>

@@ -2,7 +2,7 @@ const Post = require("../models/post");
 
 exports.createPost = (req, res) => {
   const { title, description, photo } = req.body;
-  Post.create({ title, description, imgUrl: photo, userId:req.user})
+  Post.create({ title, description, imgUrl: photo, userId: req.user })
     .then((result) => {
       console.log(result);
       res.redirect("/");
@@ -14,12 +14,19 @@ exports.renderCreatePage = (req, res) => {
   res.render("createpost", { title: "Post" }); //ejs
 };
 exports.renderHomePage = (req, res) => {
+  //isLogin=true //split => [isLogin, true]
+  const cookie = req.get("Cookie").split("=")[1].trim() === "true";
+  console.log(cookie);
   Post.find()
-  .select("title description")
-  .populate('userId',"username")
+    .select("title description")
+    .populate("userId", "username")
     .sort({ title: 1 })
     .then((posts) =>
-      res.render("home", { title: "Home Page", postsArr: posts })
+      res.render("home", {
+        title: "Home Page",
+        postsArr: posts,
+        isLogin: cookie,
+      })
     )
     .catch((err) => console.log(err));
 };
