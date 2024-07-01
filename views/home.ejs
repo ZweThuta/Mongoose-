@@ -13,6 +13,9 @@
     <h1 class="title">Home page</h1>
     <% if(isLogin){  %>
     <a class="newpost-btn" href="/admin/create-post">Add new post</a> <br>
+    <form action="/logout" method="post">
+        <button class="newpost-btn">Logout</button> <br>
+    </form>
     <% } else {%>
     <a class="newpost-btn" href="/login">Create a new account</a><br>
     <% } %>
