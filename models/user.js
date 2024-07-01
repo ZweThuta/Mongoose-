@@ -19,7 +19,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minLength: 4,
-    maxlength: 12,
   },
 });
 module.exports = model("User", userSchema);

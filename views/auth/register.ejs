@@ -11,9 +11,15 @@
 </head>
 
 <body>
-    <h1 class="title">Login Account<h1>
+    <h1 class="title">Register Account<h1>
         <section class="form-bg">
-            <form action="/login" method="post">
+            <form action="/register" method="post">
+
+                <label for="username">
+                    Enter username
+                </label>
+                <input type="text" id="username" name="username">
+
                 <label for="email">
                     Enter email
                 </label>
@@ -24,7 +30,7 @@
                 </label>
                 <input type="password" id="password" name="password" >
 
-                <button>Login</button>
+                <button>Create Account</button>
                <a class="post-btn" href="/">Go Back Home</a>
             </form>
         </section>

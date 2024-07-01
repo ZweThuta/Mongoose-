@@ -17,7 +17,8 @@
         <button class="newpost-btn">Logout</button> <br>
     </form>
     <% } else {%>
-    <a class="newpost-btn" href="/login">Create a new account</a><br>
+    <a class="newpost-btn" href="/register">Create a new account</a><br>
+    <a class="newpost-btn" href="/login">Login</a><br>
     <% } %>
     <hr>
     <h1 class="title">Posts</h1>
@@ -33,7 +34,7 @@
             <p class="p-title">
                 <%= post.title %>
             </p>
-            <p class="p-username">Post by - <%= post.userId.username  %></p>
+            <p class="p-username">Post by - </p>
             <a href="/post/<%=post._id %>" class="see">See More</a>
         </div>
         <% }%>

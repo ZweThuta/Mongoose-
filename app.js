@@ -32,12 +32,12 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  User.findById("66816b2fc80fa71fd05a714e").then((user) => {
-    req.user = user;
-    next();
-  });
-});
+// app.use((req, res, next) => {
+//   User.findById("66816b2fc80fa71fd05a714e").then((user) => {
+//     req.user = user;
+//     next();
+//   });
+// });
 
 app.use("/admin", adminRoutes);
 app.use(userRoutes);
@@ -48,17 +48,5 @@ mongoose
   .then((result) => {
     app.listen(8080);
     console.log("Connect to MongoDb");
+  }).catch((err) => console.log(err));
 
-    return User.findOne().then((user) => {
-      if (!user) {
-        User.create({
-          username: "Hermes",
-          email: "hermes27@gmail.com",
-          password: "abcdefg",
-        });
-      }
-      return user;
-    });
-  })
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err));
